@@ -129,7 +129,6 @@ export function FidelTetris() {
   });
 
   const dropTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const keysRef = useRef<Set<string>>(new Set());
 
   const startGame = useCallback(() => {
     const families = getActiveFamilies(1);

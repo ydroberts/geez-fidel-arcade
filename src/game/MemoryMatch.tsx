@@ -49,7 +49,6 @@ function shuffle<T>(arr: T[]): T[] {
 function buildCards(gridSize: number, rule: MatchRule): Card[] {
   const pairCount = gridSize / 2;
   const cards: Card[] = [];
-  const vowelSuffixes = ['ä', 'u', 'i', 'a', 'é', 'e', 'o'];
 
   if (rule === 'consonant') {
     // Pairs share the same consonant family (different vowel orders)

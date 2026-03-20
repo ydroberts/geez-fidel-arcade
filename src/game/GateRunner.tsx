@@ -113,7 +113,6 @@ export function GateRunner() {
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const rafRef = useRef<number>(0);
-  const nextGateTimerRef = useRef<number>(0);
   const stateRef = useRef(state);
   stateRef.current = state;
 
@@ -194,11 +193,10 @@ export function GateRunner() {
         });
 
         // Remove gates that passed off screen (missed)
-        const beforeLen = gates.length;
         gates = gates.filter(g => g.y < CANVAS_H + 80);
 
         if (hitGate) {
-          if (hitGate.correct) {
+          if ((hitGate as Gate).correct) {
             streak++;
             bestStreak = Math.max(bestStreak, streak);
             const streakBonus = streak > 1 ? streak * 15 : 0;

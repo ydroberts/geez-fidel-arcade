@@ -455,7 +455,7 @@ export function WordSearch() {
               <div className="ws-word-list-title">WORDS TO FIND</div>
               {state.words.map((w, i) => (
                 <div key={i} className={`ws-word-item ${w.found ? 'ws-word-found' : ''}`}>
-                  <span className="ws-word-meaning">{w.meaning}</span>
+                  <span className="ws-word-meaning">{w.word.meaning}</span>
                   {w.found && <span className="ws-word-chars">{w.word.chars.join('')}</span>}
                   {!w.found && <span className="ws-word-hint">{w.word.chars.length} chars</span>}
                 </div>

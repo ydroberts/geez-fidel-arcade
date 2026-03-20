@@ -322,7 +322,6 @@ export function RowCompletion() {
     });
   }, []);
 
-  const modeLabel = state.mode === 'row' ? 'Row' : 'Column';
   const familyName = FIDEL_FAMILIES[state.familyIndex]?.romanBase || '';
   const vowelName = VOWEL_ORDERS[state.vowelOrderIndex]?.label || '';
 

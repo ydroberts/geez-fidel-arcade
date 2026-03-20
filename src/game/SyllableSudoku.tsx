@@ -20,7 +20,7 @@ interface Cell {
 // - Each row has all 7 vowel orders (0-6)
 // - Each column has all 7 vowel orders (0-6)
 // - We assign 7 different consonant families to the 7 rows
-function generateSolution(families: number[]): number[][] {
+function generateSolution(_families: number[]): number[][] {
   // Simple Latin square via shifted rows
   // Row i, Col j -> vowel order = (i + j * shift) % 7
   // Use random valid shifts to add variety
@@ -112,7 +112,6 @@ function checkConflicts(cells: Cell[][]): Cell[][] {
     const filled = updated[r].filter(c => c.playerChar);
     const seen = new Map<string, number[]>();
     filled.forEach(c => {
-      const key = c.playerChar!;
       // For row check: same vowel order = conflict (same char in family is fine since each row is one family)
       // Actually check if same vowel order character appears twice
       const vo = FIDEL_FAMILIES[c.familyIndex].chars.indexOf(c.playerChar!);

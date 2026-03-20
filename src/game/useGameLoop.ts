@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import type { GameState, Invader, Bullet, Explosion } from './types';
+import type { GameState, Invader } from './types';
 import {
   GAME_WIDTH, GAME_HEIGHT, PLAYER_WIDTH, INVADER_SIZE,
   INVADER_GAP_X, INVADER_GAP_Y, BULLET_SPEED, PLAYER_SPEED, INITIAL_LIVES,
 } from './types';
-import { getRandomFamilies, VOWEL_ORDERS } from '../data/geezAlphabet';
+import { getRandomFamilies } from '../data/geezAlphabet';
 import { audioEngine } from '../audio/AudioEngine';
 
 let nextId = 0;
@@ -22,7 +22,6 @@ function buildInvaders(level: number): { invaders: Invader[]; targetVowelOrder: 
   // Build invader grid
   const invaders: Invader[] = [];
   const cols = 7; // one per vowel order
-  const rows = families.length;
 
   const gridWidth = cols * (INVADER_SIZE + INVADER_GAP_X) - INVADER_GAP_X;
   const startX = (GAME_WIDTH - gridWidth) / 2;
@@ -168,7 +167,6 @@ export function useGameLoop() {
 
     const tick = (timestamp: number) => {
       if (!lastTimeRef.current) lastTimeRef.current = timestamp;
-      const _delta = timestamp - lastTimeRef.current;
       lastTimeRef.current = timestamp;
 
       setState(prev => {
