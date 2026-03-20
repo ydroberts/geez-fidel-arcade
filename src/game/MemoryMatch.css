@@ -1,0 +1,367 @@
+.mm-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  color: #fff;
+  user-select: none;
+}
+
+/* Menu */
+.mm-menu {
+  text-align: center;
+  max-width: 600px;
+}
+
+.mm-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.mm-title-geez {
+  font-size: 56px;
+  color: #ffd700;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.mm-title-main {
+  font-size: 24px;
+  font-family: monospace;
+  letter-spacing: 5px;
+  color: #aa44ff;
+  text-shadow: 0 0 10px rgba(170, 68, 255, 0.4);
+}
+
+.mm-subtitle {
+  color: #999;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+.mm-subtitle strong {
+  color: #ddd;
+}
+
+.mm-difficulty-select {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.mm-diff-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 16px 28px;
+  border: 2px solid;
+  border-radius: 10px;
+  background: transparent;
+  font-family: monospace;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.2s;
+  color: inherit;
+}
+
+.mm-diff-btn span {
+  font-size: 11px;
+  font-weight: normal;
+  letter-spacing: 0;
+  opacity: 0.7;
+}
+
+.mm-diff-btn:hover { transform: scale(1.05); }
+
+.mm-easy { color: #44ff88; border-color: #44ff88; }
+.mm-easy:hover { box-shadow: 0 0 20px rgba(68, 255, 136, 0.3); }
+.mm-medium { color: #ffaa33; border-color: #ffaa33; }
+.mm-medium:hover { box-shadow: 0 0 20px rgba(255, 170, 51, 0.3); }
+.mm-hard { color: #ff4466; border-color: #ff4466; }
+.mm-hard:hover { box-shadow: 0 0 20px rgba(255, 68, 102, 0.3); }
+
+/* Game */
+.mm-game {
+  width: 100%;
+  max-width: 700px;
+  padding: 12px 16px;
+  position: relative;
+}
+
+/* HUD */
+.mm-hud {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-family: monospace;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.mm-hud-left, .mm-hud-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.mm-score {
+  color: #ffd700;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.mm-moves {
+  color: #888;
+  font-size: 13px;
+}
+
+.mm-round {
+  color: #aaa;
+  font-size: 13px;
+}
+
+.mm-timer {
+  color: #44bbff;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.mm-timer-low {
+  color: #ff4444;
+  animation: mm-pulse 0.5s infinite;
+}
+
+@keyframes mm-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* Rule badge */
+.mm-rule-badge {
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.mm-rule-consonant {
+  background: rgba(68, 204, 136, 0.15);
+  color: #44cc88;
+  border: 1px solid rgba(68, 204, 136, 0.3);
+}
+
+.mm-rule-vowel {
+  background: rgba(68, 136, 255, 0.15);
+  color: #4488ff;
+  border: 1px solid rgba(68, 136, 255, 0.3);
+}
+
+/* Progress */
+.mm-progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.mm-progress-bar {
+  flex: 1;
+  height: 6px;
+  background: #1a1a2a;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.mm-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #44ff88, #44bbff);
+  border-radius: 3px;
+  transition: width 0.3s;
+}
+
+.mm-progress-label {
+  font-size: 12px;
+  font-family: monospace;
+  color: #888;
+  min-width: 70px;
+  text-align: right;
+}
+
+/* Card Grid */
+.mm-grid {
+  display: grid;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* Card */
+.mm-card {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  perspective: 600px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+  color: inherit;
+}
+
+.mm-card:disabled {
+  cursor: default;
+}
+
+.mm-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s;
+  transform-style: preserve-3d;
+}
+
+.mm-card-flipped .mm-card-inner {
+  transform: rotateY(180deg);
+}
+
+.mm-card-front,
+.mm-card-back {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  backface-visibility: hidden;
+}
+
+.mm-card-front {
+  background: linear-gradient(135deg, #1a1a30, #151528);
+  border: 2px solid #2a2a45;
+  transition: border-color 0.2s;
+}
+
+.mm-card:hover:not(:disabled) .mm-card-front {
+  border-color: #aa44ff;
+}
+
+.mm-card-question {
+  font-size: 28px;
+  color: #333;
+  font-family: monospace;
+}
+
+.mm-card-back {
+  background: linear-gradient(135deg, #0d1a2a, #0a1520);
+  border: 2px solid #44bbff;
+  transform: rotateY(180deg);
+  gap: 4px;
+}
+
+.mm-card-matched .mm-card-back {
+  border-color: #44ff88;
+  background: linear-gradient(135deg, #0a2a15, #081a10);
+  box-shadow: 0 0 15px rgba(68, 255, 136, 0.2);
+}
+
+.mm-card-char {
+  font-size: 30px;
+  font-family: serif;
+  color: #fff;
+}
+
+.mm-card-info {
+  font-size: 11px;
+  font-family: monospace;
+  color: #888;
+  padding: 2px 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.mm-card-matched .mm-card-info {
+  color: #44ff88;
+  background: rgba(68, 255, 136, 0.1);
+}
+
+/* Round Complete overlay */
+.mm-round-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5, 5, 20, 0.85);
+  border-radius: 8px;
+  z-index: 10;
+}
+
+.mm-round-msg {
+  text-align: center;
+}
+
+.mm-round-msg h3 {
+  font-size: 28px;
+  font-family: monospace;
+  color: #ffd700;
+  letter-spacing: 3px;
+  margin-bottom: 12px;
+}
+
+.mm-round-msg p {
+  color: #aaa;
+  font-size: 14px;
+}
+
+.mm-round-msg strong {
+  color: #44bbff;
+}
+
+/* Game Over */
+.mm-gameover-title {
+  font-size: 32px;
+  font-family: monospace;
+  letter-spacing: 4px;
+  color: #ffd700;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+  margin-bottom: 24px;
+}
+
+.mm-final-stats {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.mm-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.mm-stat-value {
+  font-size: 32px;
+  font-family: monospace;
+  font-weight: bold;
+  color: #fff;
+}
+
+.mm-stat-label {
+  font-size: 12px;
+  color: #888;
+  font-family: monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}

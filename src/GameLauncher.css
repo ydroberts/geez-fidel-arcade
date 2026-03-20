@@ -1,0 +1,146 @@
+.gl-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.gl-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.gl-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.gl-title-geez {
+  font-size: 52px;
+  color: #ffd700;
+  text-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+  line-height: 1.1;
+}
+
+.gl-title-main {
+  font-size: 22px;
+  font-family: monospace;
+  letter-spacing: 8px;
+  color: #00ccff;
+  text-shadow: 0 0 15px rgba(0, 204, 255, 0.3);
+}
+
+.gl-subtitle {
+  color: #777;
+  font-size: 15px;
+  font-family: monospace;
+}
+
+/* Game Cards Grid */
+.gl-games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 900px;
+  width: 100%;
+}
+
+.gl-game-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
+  background: #0d0d1a;
+  border: 1px solid #222;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: left;
+  transition: transform 0.15s, border-color 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+  color: inherit;
+}
+
+.gl-game-card:hover:not(.gl-coming-soon) {
+  transform: translateY(-4px);
+  border-color: var(--card-color, #444);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), 0 0 20px color-mix(in srgb, var(--card-color, #444) 20%, transparent);
+}
+
+.gl-coming-soon {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.gl-card-category {
+  font-size: 11px;
+  font-family: monospace;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--card-color, #888);
+}
+
+.gl-card-geez {
+  font-size: 32px;
+  color: var(--card-color, #fff);
+  line-height: 1.1;
+}
+
+.gl-card-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #eee;
+}
+
+.gl-card-desc {
+  font-size: 13px;
+  color: #888;
+  line-height: 1.5;
+}
+
+.gl-card-play {
+  font-family: monospace;
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--card-color, #44ff88);
+  letter-spacing: 2px;
+  margin-top: 8px;
+}
+
+.gl-card-soon {
+  font-family: monospace;
+  font-size: 12px;
+  color: #555;
+  letter-spacing: 2px;
+  margin-top: 8px;
+}
+
+/* Game wrapper with back button */
+.gl-game-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.gl-back-btn {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 100;
+  background: rgba(10, 10, 20, 0.85);
+  border: 1px solid #333;
+  color: #aaa;
+  padding: 8px 16px;
+  font-family: monospace;
+  font-size: 13px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.gl-back-btn:hover {
+  color: #fff;
+  border-color: #666;
+}

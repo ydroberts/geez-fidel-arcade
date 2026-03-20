@@ -1,0 +1,161 @@
+.ws-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  color: #fff;
+  user-select: none;
+}
+
+/* Menu */
+.ws-menu { text-align: center; max-width: 600px; }
+
+.ws-title {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 4px; margin-bottom: 16px;
+}
+.ws-title-geez { font-size: 52px; color: #ffd700; text-shadow: 0 0 20px rgba(255, 215, 0, 0.5); }
+.ws-title-main { font-size: 22px; font-family: monospace; letter-spacing: 4px; color: #44ddaa; text-shadow: 0 0 10px rgba(68, 221, 170, 0.4); }
+.ws-subtitle { color: #999; font-size: 14px; line-height: 1.7; margin-bottom: 32px; }
+.ws-subtitle strong { color: #ddd; }
+
+.ws-difficulty-select { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+.ws-diff-btn {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  padding: 14px 24px; border: 2px solid; border-radius: 10px;
+  background: transparent; font-family: monospace; font-size: 16px;
+  font-weight: bold; letter-spacing: 2px; cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.2s; color: inherit;
+}
+.ws-diff-btn span { font-size: 11px; font-weight: normal; letter-spacing: 0; opacity: 0.7; }
+.ws-diff-btn:hover { transform: scale(1.05); }
+.ws-easy { color: #44ff88; border-color: #44ff88; }
+.ws-easy:hover { box-shadow: 0 0 20px rgba(68, 255, 136, 0.3); }
+.ws-medium { color: #ffaa33; border-color: #ffaa33; }
+.ws-medium:hover { box-shadow: 0 0 20px rgba(255, 170, 51, 0.3); }
+.ws-hard { color: #ff4466; border-color: #ff4466; }
+.ws-hard:hover { box-shadow: 0 0 20px rgba(255, 68, 102, 0.3); }
+
+/* Game */
+.ws-game {
+  width: 100%; max-width: 800px; padding: 12px 16px;
+  position: relative;
+}
+
+/* HUD */
+.ws-hud {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 8px; font-family: monospace;
+}
+.ws-found { color: #ffd700; font-size: 14px; font-weight: bold; }
+.ws-moves { color: #aaa; font-size: 14px; }
+.ws-timer { color: #44bbff; font-size: 14px; font-weight: bold; }
+
+/* Message */
+.ws-message {
+  text-align: center; font-family: monospace; font-size: 14px;
+  padding: 6px 12px; border-radius: 6px; margin-bottom: 10px;
+}
+.ws-msg-good { color: #44ff88; background: rgba(68, 255, 136, 0.08); }
+.ws-msg-bad { color: #ff8844; background: rgba(255, 136, 68, 0.08); }
+
+/* Board area */
+.ws-board-area {
+  display: flex; gap: 20px; align-items: flex-start;
+  justify-content: center; flex-wrap: wrap;
+}
+
+/* Grid */
+.ws-grid-wrapper { overflow: auto; }
+
+.ws-grid {
+  display: grid;
+  gap: 2px;
+}
+
+.ws-cell {
+  width: 48px; height: 48px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid #1a1a2a; font-size: 22px; font-family: serif;
+  cursor: pointer; transition: all 0.12s;
+  background: #080810; color: #bbb;
+  border-radius: 4px;
+}
+
+.ws-cell:hover:not(:disabled) {
+  border-color: #44ddaa; background: rgba(68, 221, 170, 0.06);
+}
+
+.ws-cell-start {
+  border-color: #ffd700 !important;
+  background: rgba(255, 215, 0, 0.12) !important;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+}
+
+.ws-cell-selecting {
+  border-color: #44ddaa !important;
+  background: rgba(68, 221, 170, 0.1) !important;
+}
+
+.ws-cell-found {
+  background: rgba(68, 255, 136, 0.12) !important;
+  border-color: #44ff88 !important;
+  color: #44ff88 !important;
+  text-shadow: 0 0 6px rgba(68, 255, 136, 0.4);
+}
+
+/* Word list */
+.ws-word-list {
+  min-width: 180px; max-width: 220px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid #1a1a2a; border-radius: 10px;
+  padding: 14px;
+}
+
+.ws-word-list-title {
+  font-size: 12px; font-family: monospace; letter-spacing: 2px;
+  color: #666; margin-bottom: 12px; text-align: center;
+}
+
+.ws-word-item {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 8px 0; border-bottom: 1px solid #111;
+  font-family: monospace; font-size: 13px;
+}
+.ws-word-item:last-child { border-bottom: none; }
+
+.ws-word-meaning { color: #aaa; }
+.ws-word-hint { color: #555; font-size: 11px; }
+.ws-word-chars { color: #44ff88; font-family: serif; font-size: 16px; }
+
+.ws-word-found .ws-word-meaning {
+  color: #44ff88; text-decoration: line-through; text-decoration-color: #2a6644;
+}
+
+/* Hint */
+.ws-hint {
+  text-align: center; font-family: monospace; font-size: 12px;
+  color: #555; margin-top: 12px;
+}
+
+/* Complete overlay */
+.ws-complete-overlay {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(5, 5, 20, 0.9); border-radius: 8px; z-index: 10;
+}
+
+.ws-complete-msg { text-align: center; }
+
+.ws-complete-title {
+  font-size: 32px; font-family: monospace; letter-spacing: 4px;
+  color: #ffd700; text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+  margin-bottom: 16px;
+}
+
+.ws-complete-stats {
+  display: flex; gap: 24px; justify-content: center;
+  margin-bottom: 24px; font-family: monospace; color: #aaa; font-size: 16px;
+}
